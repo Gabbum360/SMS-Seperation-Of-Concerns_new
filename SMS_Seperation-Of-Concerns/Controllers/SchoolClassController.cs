@@ -67,7 +67,7 @@ namespace Core.Controllers
         [HttpDelete("remove-Class/{id}")]
         public async Task<IActionResult> DropClass(int id)
         {
-            var erasedClass = await _schoolClass.DropClass(id);
+            var erasedClass = await _schoolClass.DropC(id);
             return Ok(erasedClass);
         }
     }
