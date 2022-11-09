@@ -13,5 +13,6 @@ namespace Business_Logic_Layer.Interfaces
         Task<Class> GetC(int id);
         Task<Class> UpdateC(int id, string ClassName);
         Task<Class> DropClass(int id);
+        Task<Class> RegC(string ClassName);
     }
 }
