@@ -51,5 +51,16 @@ namespace Business_Logic_Layer
             await SMDContext.SaveChangesAsync();
             return erasedClass;
         }
+
+        public async Task<Class> RegC(string ClassName)
+        {
+            var newclassRoom = new Class()
+            {
+                ClassName = ClassName
+            };
+            SMDContext.Add(newclassRoom);
+            await SMDContext.SaveChangesAsync();
+            return newclassRoom;
+        }
     }
 }
