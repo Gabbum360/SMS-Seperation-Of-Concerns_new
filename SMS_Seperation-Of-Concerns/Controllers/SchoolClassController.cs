@@ -38,17 +38,13 @@ namespace Core.Controllers
             await SMDContext.SaveChangesAsync();
             return Ok(classroom);
         }*/
-        /*[HttpPost("Add-new-classRoom-encrpt")]
-        public async Task<IActionResult> AddClassProfile([FromBody] AddClass cl)
+        [HttpPost("Add-new-classRoom-encrpt")]
+        public async Task<IActionResult> AddClassProfile([FromBody]AddClass Classm)
         {
-            var classRoom = new Class()
-            {
-                ClassName = cl.ClassName
-            };
-            SMDContext.Add(classRoom);
-            await SMDContext.SaveChangesAsync();
-            return Ok(classRoom);
-        }*/
+            var classr = await _schoolClass.RegC(Classm.ClassName);
+            return Ok(classr);
+            
+        }
 
         [HttpPatch("update-class-record-encrpt/{id}")]
         public async Task<IActionResult> EditClassDetails(int id, [FromBody] UpdateClass cl)
@@ -71,7 +67,7 @@ namespace Core.Controllers
         [HttpDelete("remove-Class/{id}")]
         public async Task<IActionResult> DropClass(int id)
         {
-            var erasedClass = await _schoolClass.DropClass(id);
+            var erasedClass = await _schoolClass.DropC(id);
             return Ok(erasedClass);
         }
     }
